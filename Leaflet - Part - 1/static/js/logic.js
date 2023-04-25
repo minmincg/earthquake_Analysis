@@ -26,15 +26,31 @@ let myMap = L.map("map",{
 
 //depth and color
 function depthColor(feature){
-    let depth = feature.geometry.coordinates[2];
-    if (depth <= 1) {
-        return "#ff0000";
-    } else if (depth <=2) {
-        return "#00ff00";
-    } else {
-        return "#0000ff";
-    }
-}
+    L.choropleth(data, {
+        valueProperty: 'incidents',
+        scale: ['white', 'red'],
+        steps: 5,
+        mode: 'q',
+        style: {
+          color: '#fff',
+          weight: 2,
+          fillOpacity: 0.8
+        },
+        onEachFeature: function (feature, layer) {
+          layer.bindPopup('District ' + feature.properties.dist_num + '<br>' +
+              feature.properties.incidents.toLocaleString() + ' incidents')
+        }
+      }).addTo(map)
+    };
+    // let depth = feature.geometry.coordinates[2];
+    // if (depth <= 1) {
+    //     return "#ff0000";
+    // } else if (depth <=2) {
+    //     return "#00ff00";
+    // } else {
+    //     return "#0000ff";
+    // }
+// }
 
 // magnitude and size function!!!!!
 function circleSize(feature){
