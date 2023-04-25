@@ -23,6 +23,7 @@ let myMap = L.map("map",{
   };
   
   L.control.layers(baseMaps,overlays).addTo(myMap);
+
 //depth and color
 function depthColor(feature){
     let depth = feature.geometry.coordinates[2];
@@ -35,13 +36,19 @@ function depthColor(feature){
     }
 }
 
+// magnitude and size function!!!!!
+function circleSize(feature){
+    let magnitude = feature.properties.mag;
+    return Math.sqrt(magnitude)*5;
+}
+
 function getSyleInfo(feature){
     let styleInfo = {
         opacity: 1,
         fillOpacity: 1,
         fillColor: depthColor(feature),
         color: "black",
-        radius: 5,  // function
+        radius: circleSize(feature),  // function
         stroke: true,
         weight: 0.5
     };
@@ -54,8 +61,9 @@ function pointToLayer(feature,latLong) {
 }
 
 function makePopup(feature,layer){
-    let text = "hello!";
-    layer.bindPopup(text);
+    let earthID = feature.id;
+    let text = feature.properties.place;
+    layer.bindPopup(`<h1>Id: ${earthID}</h1> <hr> <h3> Place: ${text}</h3>`).addTo(myMap);
 }
 
 // earthquake layer
