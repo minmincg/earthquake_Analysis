@@ -26,35 +26,19 @@ let myMap = L.map("map",{
 
 //depth and color
 function depthColor(feature){
-//     L.choropleth(data, {
-//         valueProperty: 'incidents',
-//         scale: ['white', 'red'],
-//         steps: 5,
-//         mode: 'q',
-//         style: {
-//           color: '#fff',
-//           weight: 2,
-//           fillOpacity: 0.8
-//         },
-//         onEachFeature: function (feature, layer) {
-//           layer.bindPopup('District ' + feature.properties.dist_num + '<br>' +
-//               feature.properties.incidents.toLocaleString() + ' incidents')
-//         }
-//       }).addTo(map)
-//     };
     let depth = feature.geometry.coordinates[2];
     if (depth >= -10 && depth <= 10 ) {
         return "#99ff66";
     } else if (depth >= 10 && depth <= 30 ) {
-        return "#ccff66";
+        return "#D4EE00";
     } else if (depth >= 30 && depth <= 50 ) {
-        return "#ffcc00";
+        return "#EECC00";
     } else if (depth >= 50 && depth <= 70 ) {
-        return "#ff9900";
+        return "#EE9C00";
     } else if (depth >= 70 && depth <= 90 ) {
-        return "#ff6600";
+        return "#EA822C";
     } else {
-        return "#ff5050";
+        return "#EA2C2C";
     }
 }
 
@@ -67,7 +51,7 @@ function circleSize(feature){
 function getSyleInfo(feature){
     let styleInfo = {
         opacity: 1,
-        fillOpacity: 1,
+        fillOpacity: 0.7,
         fillColor: depthColor(feature),
         color: "black",
         radius: circleSize(feature),  // function
@@ -98,7 +82,7 @@ function makePopup(feature,layer){
     var div = L.DomUtil.create("div", "info legend");
     var grades = [-10, 10, 30, 50, 70, 90];
     var colors = [
-      "#98EE00",
+      "#99ff66",
       "#D4EE00",
       "#EECC00",
       "#EE9C00",
@@ -113,22 +97,6 @@ function makePopup(feature,layer){
     return div;
   };
   
-
-
-// let legend = L.control({position:"bottomright"});
-//     legend.onAdd = function() {
-//         let div = L/DocumentTimeline.create("div", "info legend");
-//         let labels = [];
-
-//         let legendInfo = "<h1>Earthquakes' magnitude</h1>" +
-//         "<div class=\"labels\>" +
-//         "<div>";
-
-//         div.innerHTML = legendInfo;  
-
-//     };
-    // legend.addTo(myMap);
-
 
 // earthquake layer
 d3.json(URL).then((data) => {
