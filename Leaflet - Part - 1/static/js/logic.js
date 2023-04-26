@@ -113,7 +113,7 @@ function makePopup(feature,layer){
     return div;
   };
   // Finally, we our legend to the map.
-  legend.addTo(map);
+  
 
 
 // let legend = L.control({position:"bottomright"});
@@ -141,6 +141,7 @@ d3.json(URL).then((data) => {
 
     L.geoJson(data,options).addTo(allEarthquakes);
     allEarthquakes.addTo(myMap);
+    legend.addTo(map);
 });
 
 
