@@ -68,9 +68,10 @@ function pointToLayer(feature,latLong) {
 }
 
 function makePopup(feature,layer){
-    let earthID = feature.id;
-    let text = feature.properties.place;
-    layer.bindPopup(`<h1>Id: ${earthID}</h1> <hr> <h3> Place: ${text}</h3>`).addTo(myMap);
+    let location = feature.properties.place;
+    let mag = feature.properties.mag;
+    let dep = feature.geometry.coordinates[2];
+    layer.bindPopup(`<h1>Location: ${location}</h1> <hr> <h3> Magnitude: ${mag}</h3> <hr> <h3> Depth: ${dep}</h3>`).addTo(myMap);
 }
 
 //   CREATE LEGEND
