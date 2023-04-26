@@ -3,7 +3,7 @@ const URL= "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.g
 //Map object
 let myMap = L.map("map",{
     center: [37.09,-95.71],
-    zoom: 5
+    zoom: 3
 });
 
 // Create the tile layer that will be the background of our map.
@@ -11,6 +11,7 @@ let myMap = L.map("map",{
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   });
 
+streetmap.addTo(myMap);
   // Create a baseMaps object to hold the streetmap layer.
   let baseMaps = {
     "Street Map": streetmap
