@@ -89,14 +89,47 @@ function makePopup(feature,layer){
 }
 
 //   CREATE LEGEND
-// L.control.Legend({
-//     position: "bottomleft",
-//     legends: [{
-//         label: "Marker1",
-//         type: "image",
-//         url: "marker/marker-red.png",
-//     }]
-// }).addTo(myMap);
+ // Here we create a legend control object.
+ var legend = L.control({
+    position: "bottomright"
+  });
+  // Then add all the details for the legend
+  legend.onAdd = function () {
+    var div = L.DomUtil.create("div", "info legend");
+    var grades = [-10, 10, 30, 50, 70, 90];
+    var colors = [
+      "#98EE00",
+      "#D4EE00",
+      "#EECC00",
+      "#EE9C00",
+      "#EA822C",
+      "#EA2C2C"
+    ];
+    // Looping through our intervals to generate a label with a colored square for each interval.
+    for (var i = 0; i < grades.length; i++) {
+      div.innerHTML += "<i style='background: " + colors[i] + "'></i> "
+        + grades[i] + (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
+    }
+    return div;
+  };
+  // Finally, we our legend to the map.
+  legend.addTo(map);
+
+
+// let legend = L.control({position:"bottomright"});
+//     legend.onAdd = function() {
+//         let div = L/DocumentTimeline.create("div", "info legend");
+//         let labels = [];
+
+//         let legendInfo = "<h1>Earthquakes' magnitude</h1>" +
+//         "<div class=\"labels\>" +
+//         "<div>";
+
+//         div.innerHTML = legendInfo;  
+
+//     };
+    // legend.addTo(myMap);
+
 
 // earthquake layer
 d3.json(URL).then((data) => {
