@@ -14,6 +14,14 @@ https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson
 
 Here's a picture with the results of directory "part 1". It is basic. Only has streetmap and the earthquakes:
 ![Alt text](Images/2-BasicMapPreview.png)
+#### Streetmap reference: "https://www.openstreetmap.org/copyright" OpenStreetMap contributors'
 
 Next, I stepped it up a knodge and added different maps bases to choose from, and added tectonic plates for interaction. You can turn on and off both earthquake markers and plates. Also you can use the control to switch between map types. Heres a preview of the advanced version:
 ![Alt text](Images/4-AdvancedMapPreview.png)
+
+#### Topographic map reference: "https://www.openstreetmap.org/copyright"
+contributors, "http://viewfinderpanoramas.org" 
+Map style:"https://opentopomap.org">OpenTopoMap "https://creativecommons.org/licenses/by-sa/3.0/"
+
+Outdoors map reference: 
+'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
