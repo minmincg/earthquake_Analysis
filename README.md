@@ -11,4 +11,4 @@ I specifically used th data under past 7 days, all earthquakes. The data comes f
 https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson
 
 Here's a picture with the results:
-![Alt text](../../../../../../var/folders/ym/m29479k14ln__3q0ss4d44300000gn/T/TemporaryItems/NSIRD_screencaptureui_jiK1N8/Screenshot%202023-04-26%20at%2018.55.04.png)
+![Alt text](result_part_1.png)
