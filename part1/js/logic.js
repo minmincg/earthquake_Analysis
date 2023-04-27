@@ -112,5 +112,3 @@ d3.json(URL).then((data) => {
     allEarthquakes.addTo(myMap);
     legend.addTo(myMap);
 });
-
-
