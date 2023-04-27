@@ -14,13 +14,21 @@ let myMap = L.map("map",{
   let topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
 	attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
 });
+let outdoors =  L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	subdomains: 'abcd',
+	minZoom: 1,
+	maxZoom: 16,
+	ext: 'jpg'
+});
 
 streetmap.addTo(myMap);
 
   // Create a baseMaps object to hold the streetmap layer.
   let baseMaps = {
     "Street Map": streetmap,
-    "Topography": topo
+    "Topography": topo,
+    "outdoors": outdoors
   };
 
   let allEarthquakes = new L.LayerGroup();
@@ -38,9 +46,9 @@ streetmap.addTo(myMap);
 //   plates
 let plates = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_plates.json"
 
-d3.json(plates).then((data) => {
-    L.geoJson(data).addTo(myMap);
-
+d3.json(plates).then((platesData) => {
+    L.geoJson(platesData).addTo(tectonicPlates);
+    tectonicPlates.addTo(myMap);
 
     //depth and color
     function depthColor(feature){
@@ -127,7 +135,6 @@ d3.json(plates).then((data) => {
 
         L.geoJson(data,options).addTo(allEarthquakes);
         allEarthquakes.addTo(myMap);
-        tectonicPlates.addTo(myMap);
         legend.addTo(myMap);
     });
 });
