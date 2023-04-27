@@ -1,4 +1,10 @@
 # leaflet-challenge
+
+
+# Final output
+My site is live at https://minmincg.github.io/leaflet-challenge/index.html
+# Background info:
+
 ![Alt text](Images/1-Logo.png)
 The United States Geological Survey, or USGS for short, is responsible for providing scientific data about natural hazards, the health of our ecosystems and environment, and the impacts of climate and land-use change. Their scientists develop new methods and tools to supply timely, relevant, and useful information about the Earth and its processes.
 
@@ -26,5 +32,3 @@ Map style:"https://opentopomap.org">OpenTopoMap "https://creativecommons.org/lic
 Outdoors map reference: 
 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 
-# Final output
-My site is live at https://minmincg.github.io/leaflet-challenge/
