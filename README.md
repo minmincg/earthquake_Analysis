@@ -2,7 +2,7 @@
 
 
 # Final output
-My site is live at https://minmincg.github.io/leaflet-challenge/index.html
+My site is live at https://minmincg.github.io/earthquake_Analysis/
 # Background info:
 
 ![Alt text](Images/1-Logo.png)
